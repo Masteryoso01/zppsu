@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+@theme {
+  --font-headline: "Oswald", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-label: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  /* Primary — Headline (maroon) */
+  --color-primary-50: #fce8e8;
+  --color-primary-100: #f8cfcf;
+  --color-primary-200: #efa3a3;
+  --color-primary-300: #e27575;
+  --color-primary-400: #cc4747;
+  --color-primary-500: #b01f1f;
+  --color-primary-600: #990000;
+  --color-primary-700: #7a0000;
+  --color-primary-800: #5c0000;
+  --color-primary-900: #3d0000;
+  --color-primary-950: #240000;
+
+  /* Secondary (orange) */
+  --color-secondary-50: #fff3e8;
+  --color-secondary-100: #ffe1c2;
+  --color-secondary-200: #ffc285;
+  --color-secondary-300: #ffa347;
+  --color-secondary-400: #ff8a1a;
+  --color-secondary-500: #ff7a00;
+  --color-secondary-600: #e56600;
+  --color-secondary-700: #b84f00;
+  --color-secondary-800: #8a3b00;
+  --color-secondary-900: #5c2700;
+  --color-secondary-950: #3d1a00;
+
+  /* Tertiary — Inverted/dark surfaces (near-black navy) */
+  --color-tertiary-50: #f2f2f5;
+  --color-tertiary-100: #e1e1e8;
+  --color-tertiary-200: #c2c2d1;
+  --color-tertiary-300: #9d9db3;
+  --color-tertiary-400: #6e6e8a;
+  --color-tertiary-500: #4a4a66;
+  --color-tertiary-600: #35354a;
+  --color-tertiary-700: #262636;
+  --color-tertiary-800: #1c1c28;
+  --color-tertiary-900: #14141f;
+  --color-tertiary-950: #0a0a10;
+
+  /* Neutral (light gray, backgrounds and text) */
+  --color-neutral-50: #f8fafc;
+  --color-neutral-100: #f1f5f9;
+  --color-neutral-200: #e2e8f0;
+  --color-neutral-300: #cbd5e1;
+  --color-neutral-400: #94a3b8;
+  --color-neutral-500: #64748b;
+  --color-neutral-600: #475569;
+  --color-neutral-700: #334155;
+  --color-neutral-800: #1e293b;
+  --color-neutral-900: #0f172a;
+  --color-neutral-950: #020617;
+
+  /* Semantic status colors */
+  --color-success-50: #ecfdf5;
+  --color-success-500: #10b981;
+  --color-success-600: #059669;
+  --color-warning-50: #fffbeb;
+  --color-warning-500: #f59e0b;
+  --color-warning-600: #d97706;
+  --color-danger-50: #fef2f2;
+  --color-danger-500: #ef4444;
+  --color-danger-600: #dc2626;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-body);
+  }
+  body {
+    @apply bg-neutral-50 text-neutral-900 antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-headline);
+  }
+  ::selection {
+    @apply bg-primary-600/20;
+  }
+}
+
+@layer utilities {
+  .font-headline {
+    font-family: var(--font-headline);
+  }
+  .font-label {
+    font-family: var(--font-label);
+  }
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-neutral-300 rounded-full;
+  }
+}
+
+/* Mobile: 16px form controls prevent iOS Safari zoom-on-focus; no horizontal page scroll */
+@media (max-width: 639px) {
+  input, select, textarea { font-size: 16px !important; }
+}
+body { overflow-x: clip; } /* clip (not hidden) so position: sticky headers keep working */
